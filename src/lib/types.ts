@@ -1,7 +1,8 @@
 export enum MessageType {
-  SHORT = 'short',
-  MEDIUM = 'medium',
-  LONG = 'long'
+  SHORT,
+  MEDIUM,
+  LONG,
+  EMOTE
 }
 
 export interface Action {

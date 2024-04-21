@@ -8,13 +8,18 @@ import audioSources from './audio'
 
 const messageGap = 1 * 1000
 
-export default function Widget({ username }: { username: string }) {
+export default function Widget({
+  username,
+  filter
+}: {
+  username: string
+  filter: string[]
+}) {
   const audioRef = useRef<HTMLAudioElement>(null)
-  const usernameRef = useRef(username)
   const queueRef = useRef<Action[]>([])
 
   useEffect(() => {
-    const chatClient = new Client({ channels: [usernameRef.current] })
+    const chatClient = new Client({ channels: [username] })
     chatClient.connect()
 
     chatClient.on('connected', () => console.log('Twitch Chat: connected'))
@@ -22,7 +27,9 @@ export default function Widget({ username }: { username: string }) {
       console.log('Twitch Chat: disconnnected')
     )
     chatClient.on('message', (channel, tags, message, self) => {
-      if (self) return
+      const isFiltered =
+        tags.username && filter.includes(tags.username.toLowerCase())
+      if (self || isFiltered) return
 
       let messageType: MessageType = MessageType.SHORT
       if (message.length > 30) messageType = MessageType.LONG
@@ -43,7 +50,7 @@ export default function Widget({ username }: { username: string }) {
     return () => {
       chatClient.removeAllListeners()
     }
-  }, [])
+  }, [username, filter])
 
   useEffect(() => {
     if (!audioRef.current) return
