@@ -7,6 +7,6 @@ export enum MessageType {
 
 export interface Action {
   messageType: MessageType
-  src: any
+  src: string
   ts: number
 }

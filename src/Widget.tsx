@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Client } from 'tmi.js'
 
-import { randomItem } from './lib'
-import { Action, MessageType } from './lib/types'
+import { getMessageType, randomItem } from './lib'
+import { Action } from './lib/types'
 
 import audioSources from './audio'
 
@@ -31,11 +31,9 @@ export default function Widget({
         tags.username && filter.includes(tags.username.toLowerCase())
       if (self || isFiltered) return
 
-      let messageType: MessageType = MessageType.SHORT
-      if (message.length > 30) messageType = MessageType.LONG
-      else if (message.length > 16) messageType = MessageType.MEDIUM
+      const messageType = getMessageType(tags, message)
 
-      const src = randomItem(audioSources.message[messageType])
+      const src = randomItem<string>(audioSources.message[messageType])
       const action: Action = { messageType, src, ts: Date.now() }
 
       queueRef.current.push(action)
