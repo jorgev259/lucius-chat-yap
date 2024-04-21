@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "https://jorgev259.github.io/lucius-chat-yap/static/js/main.029d0562.js",
+    "static/media/long1.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/long1.d69d5133142a5f36396f.wav",
+    "static/media/long3.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/long3.9886a475b45e5f8fb872.wav",
+    "static/media/long2.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/long2.ffa887a264292a37884d.wav",
+    "static/media/medium1.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/medium1.5df6cb97adcc00c56a57.wav",
+    "static/media/medium4.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/medium4.4b23574507877311b295.wav",
+    "static/media/medium3.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/medium3.ae69949af8b72139e6e3.wav",
+    "static/media/medium5.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/medium5.fe7ae5119e68bb901ac0.wav",
+    "static/media/medium2.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/medium2.803a0453941c3bfdea67.wav",
+    "static/media/short2.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/short2.3606d6d84029069b5785.wav",
+    "static/media/short1.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/short1.2e3e42ba6db1d5880916.wav",
+    "static/media/short3.wav": "https://jorgev259.github.io/lucius-chat-yap/static/media/short3.08daaddba4698bc80ed9.wav",
+    "index.html": "https://jorgev259.github.io/lucius-chat-yap/index.html",
+    "main.029d0562.js.map": "https://jorgev259.github.io/lucius-chat-yap/static/js/main.029d0562.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.029d0562.js"
+  ]
+}
