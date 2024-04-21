@@ -19,16 +19,4 @@ jobs:
           cache: 'npm'
 
       - run: npm install
-      - name: Build with Next.js
-        env:
-          PUBLIC_URL: https://jorgev259.github.io/lucius-chat-yap
-        run: |
-          npm run build
-          touch ./build/.nojekyll
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+      - run: npm run deploy
