@@ -1,5 +1,5 @@
 const audioSources = {
-  emote: require('./emote.wav'),
+  // emote: require('./emote.wav'),
   message: {
     short: [
       require('./message/short1.wav'),
