@@ -1,4 +1,4 @@
-import { MessageType } from '../lib/types'
+import { ExtraMode, ExtraType, MessageType } from '../lib/types'
 
 const audioSources = {
   message: {
@@ -20,6 +20,33 @@ const audioSources = {
       require('./message/long2.wav'),
       require('./message/long3.wav')
     ]
+  },
+  extra: {
+    [ExtraType.SQUIGGLY]: {
+      src: require('./extra/squiggly.wav'),
+      match: /~/g,
+      mode: ExtraMode.END
+    },
+    [ExtraType.LOL]: {
+      src: require('./extra/lol.wav'),
+      match: /(lol|lmao|lmfao|rofl)/gi,
+      mode: ExtraMode.END
+    },
+    [ExtraType.EXCLAMATION]: {
+      src: require('./extra/exclamation.wav'),
+      match: /!/g,
+      mode: ExtraMode.START
+    },
+    [ExtraType.QUESTION]: {
+      src: require('./extra/question.wav'),
+      match: /\?/g,
+      mode: ExtraMode.START
+    },
+    [ExtraType.PAUSE]: {
+      src: require('./extra/pause.wav'),
+      match: /(\.)\1+/g,
+      mode: ExtraMode.START
+    }
   }
 }
 

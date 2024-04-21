@@ -1,7 +1,7 @@
 import type { ChatUserstate } from 'tmi.js'
 
 import audioSources from '../audio'
-import { MessageType } from './types'
+import { type ExtraSound, MessageType } from './types'
 
 const extraSounds = audioSources.extra
 
@@ -30,6 +30,11 @@ export function checkEmoteOnly(tags: ChatUserstate, message: string) {
     })
     .join('')
 
+  // Remove every character/string that matches an extra sound
+  Object.values(extraSounds).forEach((sound) => {
+    parsedMessage = parsedMessage.replace(sound.match, '').trim()
+  })
+
   return parsedMessage.length === 0
 }
 
@@ -41,3 +46,16 @@ export function getMessageType(tags: ChatUserstate, message: string) {
   return MessageType.SHORT
 }
 
+export function getExtraSound(
+  tags: ChatUserstate,
+  message: string
+): ExtraSound | null {
+  const messageType = getMessageType(tags, message)
+  if (messageType === MessageType.EMOTE) return null
+
+  const extraSound = Object.values(extraSounds).find((sound) =>
+    sound.match.test(message)
+  )
+
+  return extraSound ?? null
+}
